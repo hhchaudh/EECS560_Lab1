@@ -8,8 +8,11 @@ int main()
 {
     DoubleLinkedList myList = DoubleLinkedList{};
     myList.insert(5);
+    myList.insert(5);
     myList.insert(10);
     myList.insert(15);
+    myList.insert(10);
+    myList.remove(11);
 
     if (!myList.print())
     {

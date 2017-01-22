@@ -36,6 +36,11 @@ void DoubleLinkedList::insert(int aValue)
 
 void DoubleLinkedList::recursiveInsert(Node* aNodePtr, int aValue)
 {
+    if(aNodePtr->getValue() == aValue)
+    {
+        return;
+    }
+
     if(aNodePtr->getNext() == nullptr)
     {
         Node* newNode = new Node(aValue);
@@ -50,7 +55,7 @@ void DoubleLinkedList::recursiveInsert(Node* aNodePtr, int aValue)
 
 bool DoubleLinkedList::print()
 {
-    if (mFront == nullptr)
+    if(mFront == nullptr)
     {
         return false;
     }
@@ -61,13 +66,49 @@ bool DoubleLinkedList::print()
     }
 }
 
+
 void DoubleLinkedList::recursivePrint(Node* aNodePtr)
 {
     std::cout << aNodePtr->getValue() << " ";
     
-    if (aNodePtr->getNext() != nullptr)
+    if(aNodePtr->getNext() != nullptr)
     {
         recursivePrint(aNodePtr->getNext());
     }
+}
+
+bool DoubleLinkedList::remove(int aValue)
+{
+    if(mFront == nullptr)
+    {
+        return false;
+    }
+    else
+    {
+       return recursiveRemove(mFront, aValue);
+    }
+}
+
+bool DoubleLinkedList::recursiveRemove(Node* aNodePtr, int aValue)
+{
+    if(aNodePtr == nullptr)
+    {
+        return false;
+    }
+
+    if(aNodePtr->getValue() == aValue)
+    {
+        Node* currentNode = aNodePtr;
+        Node* nextNode = currentNode->getNext();
+        Node* previousNode = currentNode->getPrevious();
+
+        previousNode->setNext(nextNode);
+        nextNode->setPrevious(previousNode);
+
+        delete currentNode;
+        return true;
+    }
+
+    recursiveRemove(aNodePtr->getNext(), aValue);
 }
 
