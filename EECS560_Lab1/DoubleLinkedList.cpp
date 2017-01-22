@@ -102,8 +102,19 @@ bool DoubleLinkedList::recursiveRemove(Node* aNodePtr, int aValue)
         Node* nextNode = currentNode->getNext();
         Node* previousNode = currentNode->getPrevious();
 
-        previousNode->setNext(nextNode);
-        nextNode->setPrevious(previousNode);
+        if(previousNode)
+        {
+            previousNode->setNext(nextNode);
+        }
+        else
+        {
+            mFront = nextNode;
+        }
+
+        if(nextNode)
+        { 
+            nextNode->setPrevious(previousNode);
+        }
 
         delete currentNode;
         return true;

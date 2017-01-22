@@ -12,12 +12,13 @@ int main()
     myList.insert(10);
     myList.insert(15);
     myList.insert(10);
-    myList.remove(11);
+    myList.remove(15);
 
     if (!myList.print())
     {
         std::cout << "List is empty";
     }
+    std::cout << "\n";
     return 0;
 }
 
