@@ -12,7 +12,8 @@ int main()
     myList.insert(10);
     myList.insert(15);
     myList.insert(10);
-    myList.remove(15);
+    //myList.remove(15);
+    myList.reverse();
 
     if (!myList.print())
     {

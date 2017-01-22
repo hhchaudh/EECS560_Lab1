@@ -89,6 +89,7 @@ bool DoubleLinkedList::remove(int aValue)
     }
 }
 
+
 bool DoubleLinkedList::recursiveRemove(Node* aNodePtr, int aValue)
 {
     if(aNodePtr == nullptr)
@@ -123,3 +124,26 @@ bool DoubleLinkedList::recursiveRemove(Node* aNodePtr, int aValue)
     recursiveRemove(aNodePtr->getNext(), aValue);
 }
 
+void DoubleLinkedList::reverse()
+{
+    if(!mFront || !(mFront->getNext()))
+    {
+        return;
+    }
+    else
+    {
+        Node* referenceNode = mFront;
+        recursiveReverse(referenceNode, mFront);
+    }
+}
+
+void DoubleLinkedList::recursiveReverse(Node*& aRefNode, Node* currentNode)
+{
+    int localValue = currentNode->getValue();
+    if(currentNode->getNext())
+    {
+        recursiveReverse(aRefNode, currentNode->getNext());
+    }
+    aRefNode->setValue(localValue);
+    aRefNode = aRefNode->getNext();
+}
