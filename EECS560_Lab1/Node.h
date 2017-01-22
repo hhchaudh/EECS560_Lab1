@@ -9,9 +9,9 @@ public:
     int getValue() const;
     void setValue(int aVal);
     Node* getNext() const;
-    void setNext(Node*& aNodePtr);
+    void setNext(Node* aNodePtr);
     Node* getPrevious() const;
-    void setPrevious(Node*& aNodePtr);
+    void setPrevious(Node* aNodePtr);
 
 private:
     int mValue;

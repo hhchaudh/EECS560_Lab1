@@ -19,7 +19,7 @@ Node* Node::getNext() const
     return mNext;
 }
 
-void Node::setNext(Node*& aNodePtr)
+void Node::setNext(Node* aNodePtr)
 {
     mNext = aNodePtr;
 }
@@ -29,7 +29,7 @@ Node* Node::getPrevious() const
     return mPrevious;
 }
 
-void Node::setPrevious(Node*& aNodePtr)
+void Node::setPrevious(Node* aNodePtr)
 {
     mPrevious = aNodePtr;
 }
