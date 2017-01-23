@@ -62,6 +62,7 @@ bool DoubleLinkedList::print()
     else
     {
         recursivePrint(mFront);
+        std::cout << std::endl;
         return true;
     }
 }
@@ -70,7 +71,7 @@ bool DoubleLinkedList::print()
 void DoubleLinkedList::recursivePrint(Node* aNodePtr)
 {
     std::cout << aNodePtr->getValue() << " ";
-    
+
     if(aNodePtr->getNext() != nullptr)
     {
         recursivePrint(aNodePtr->getNext());
@@ -113,7 +114,7 @@ bool DoubleLinkedList::recursiveRemove(Node* aNodePtr, int aValue)
         }
 
         if(nextNode)
-        { 
+        {
             nextNode->setPrevious(previousNode);
         }
 
@@ -121,7 +122,7 @@ bool DoubleLinkedList::recursiveRemove(Node* aNodePtr, int aValue)
         return true;
     }
 
-    recursiveRemove(aNodePtr->getNext(), aValue);
+    return recursiveRemove(aNodePtr->getNext(), aValue);
 }
 
 void DoubleLinkedList::reverse()
