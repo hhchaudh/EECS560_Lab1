@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include "DoubleLinkedList.h"
 
 int getChoice();
@@ -91,7 +90,10 @@ void insertItem(DoubleLinkedList& list)
     std::cout << "Choose a number to be added to the list\n";
     int number;
     std::cin >> number;
-    list.insert(number);
+    if(!list.insert(number))
+    {
+        std::cout << "Error, could not add " << number << ", value is already in the list.\n";
+    }
 }
 
 void deleteItem(DoubleLinkedList& list)
@@ -115,5 +117,9 @@ void printList(DoubleLinkedList& list)
     if(!list.print())
     {
         std::cout << "The list is empty\n";
+    }
+    else
+    {
+        std::cout << std::endl;
     }
 }
