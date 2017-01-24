@@ -5,7 +5,6 @@ DoubleLinkedList::DoubleLinkedList():mFront(nullptr)
 {
 }
 
-
 DoubleLinkedList::~DoubleLinkedList()
 {
     Node* deleter = mFront;
@@ -88,7 +87,6 @@ bool DoubleLinkedList::remove(int aValue)
        return recursiveRemove(mFront, aValue);
     }
 }
-
 
 bool DoubleLinkedList::recursiveRemove(Node* aNodePtr, int aValue)
 {
