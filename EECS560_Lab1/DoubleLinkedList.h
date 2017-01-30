@@ -46,6 +46,11 @@ public:
     * Function used to reverse the values in the DoubleLinkedList
     */
     void reverse();
+
+    /**
+    * Function used to find a value in the list
+    */
+    bool find(int aValue);
 private:
     /**
     * Pointer that points to the front of the list
@@ -81,5 +86,12 @@ private:
     * @param aCurrentNode A pointer that points to the current node during recursion
     */
     void recursiveReverse(Node*& aRefNode, Node* aCurrentNode);
+
+    /**
+    * Function used to find a value recursively
+    * @param aNodePtr A pointer that points to the current node during recursion
+    * @param aValue The value that we're searching for
+    */
+    bool recursiveFind(Node* aRefNode, int aValue);
 };
 #endif // !DOUBLE_LINKED_LIST_H

@@ -162,3 +162,24 @@ void DoubleLinkedList::recursiveReverse(Node*& aRefNode, Node* aCurrentNode)
     aRefNode->setValue(localValue);
     aRefNode = aRefNode->getNext();
 }
+
+bool DoubleLinkedList::find(int aValue)
+{
+    return recursiveFind(mFront, aValue);
+}
+
+bool DoubleLinkedList::recursiveFind(Node* aNodePtr, int aValue)
+{
+    if(!aNodePtr)
+    {
+        return false;
+    }
+    else if(aNodePtr->getValue() == aValue)
+    {
+        return true;
+    }
+    else
+    {
+        return recursiveFind(aNodePtr->getNext(), aValue);
+    }
+}
